@@ -5,7 +5,7 @@
 
 void Main()
 {
-	var conn = new SqlConnection(cnstring);
+	var conn = new SqlConnection(MyExtensions.SQLConnectionString);
 	
 	var lookup = new Dictionary<int, Parent>();
 

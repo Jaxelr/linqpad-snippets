@@ -5,7 +5,7 @@
 
 void Main()
 {
-	var conn = new SqlConnection(cnstring);
+	var conn = new SqlConnection(MyExtensions.SQLConnectionString);
 	int Id = 1;
 	
 	var lookup = new Dictionary<int, Parent>();
@@ -31,8 +31,6 @@ void Main()
 	result.Dump("Parent Child Result");
 }
 
-//conn string
-string cnstring = "Data Source=localhost\\brief;Initial Catalog=ParentChild;Integrated Security=True";
 
 class Parent
 {

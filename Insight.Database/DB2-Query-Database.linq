@@ -10,14 +10,11 @@
 
 void Main()
 {
-	var conn = new DB2Connection(connstring);
+	var conn = new DB2Connection(MyExtensions.DB2ConnectionString);
 	var resp = conn.QuerySql<Response>("SELECT DISTINCT TCL_TYPE_CODE AS Code, TCL_TYPE_DESC AS Desc FROM TCL_TYPE_CD_LOOKUP");
 	
 	resp.Dump("TCL Codes");
 }
-
-// Define other methods and classes here
-string connstring = "Database=HSCRP;Server=10.31.1.68:60016;UserID=appsuid;Password=Comp1ete4you;CurrentSchema=HS";
 
 class Response
 { 

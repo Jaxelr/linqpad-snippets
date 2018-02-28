@@ -5,7 +5,7 @@
 
 void Main()
 {
-	var conn = new SqlConnection(connstring);
+	var conn = new SqlConnection(MyExtensions.SQLConnectionString);
 	SqlInsightDbProvider.RegisterProvider();
 
 	var response = conn.Query(@"SELECT 1 ParentId, 'Jaxel' Name, 'Rojas' SecondName
@@ -14,9 +14,6 @@ void Main()
 		
 	response.Dump("Parent Child");
 }
-
-// Define other methods and classes here
-string connstring = "Server=localhost\\brief;database=master;Trusted_Connection=true;MultipleActiveResultSets=true;";
 
 class Parent
 {
