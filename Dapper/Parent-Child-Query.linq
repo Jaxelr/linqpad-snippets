@@ -27,9 +27,6 @@ void Main()
 	result.Dump("Parent Child Result");
 }
 
-//conn string
-string cnstring = "Data Source=localhost\\brief;Initial Catalog=ParentChild;Integrated Security=True";
-
 class Parent
 { 
 	public int ParentId { get; set; }

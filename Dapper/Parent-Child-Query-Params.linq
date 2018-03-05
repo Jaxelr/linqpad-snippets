@@ -31,7 +31,6 @@ void Main()
 	result.Dump("Parent Child Result");
 }
 
-
 class Parent
 {
 	public int ParentId { get; set; }
