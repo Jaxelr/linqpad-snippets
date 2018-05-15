@@ -1,12 +1,4 @@
-<Query Kind="SQL">
-  <Connection>
-    <ID>02fed3e9-3945-4f1d-8d5d-5aade21ddddd</ID>
-    <Persist>true</Persist>
-    <Server>tsaisdev</Server>
-    <Database>Capitation_PSG</Database>
-    <ShowServer>true</ShowServer>
-  </Connection>
-</Query>
+<Query Kind="SQL" />
 
 DECLARE @Sort TABLE
 (
