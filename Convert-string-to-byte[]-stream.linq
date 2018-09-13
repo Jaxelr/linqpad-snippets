@@ -1,6 +1,5 @@
 <Query Kind="Statements">
   <NuGetReference>Nancy</NuGetReference>
-  <Namespace>Nancy</Namespace>
 </Query>
 
 //Create string
@@ -23,4 +22,3 @@ StreamReader reader = new StreamReader(stream);
 string output2 = reader.ReadToEnd();
 
 output2.Dump("My output from stream");
-
