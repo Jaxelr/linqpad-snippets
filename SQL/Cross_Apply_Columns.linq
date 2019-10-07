@@ -1,6 +1,6 @@
 <Query Kind="SQL" />
 
---Instead of using Pivot 
+--Instead of using Unpivot 
 
 DECLARE @workdays TABLE
 (
