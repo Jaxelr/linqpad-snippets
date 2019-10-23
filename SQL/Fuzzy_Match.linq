@@ -13,7 +13,7 @@ BEGIN
 SET @counter = 1;
 SET @accumulator = 0;
 
-WHILE @counter<LEN(@base)
+WHILE @counter <= LEN(@base)
 
 	BEGIN
 		IF CHARINDEX(SUBSTRING(@base, @counter, 2), @match) > 0
