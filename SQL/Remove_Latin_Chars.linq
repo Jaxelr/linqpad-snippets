@@ -1,8 +1,5 @@
-<Query Kind="Expression" />
+<Query Kind="SQL" />
 
-USE[MC21]
-GO
-/****** Object:  UserDefinedFunction [dbo].[RemoveLatinChars]    Script Date: 8/21/2019 9:53:26 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
