@@ -5,7 +5,7 @@ declare @table varchar(255), @schema varchar(255),
 		@statement nvarchar(max), @filter varchar(max)
 
 SET @table = 'Sampl2'
-SET @filter = 'WHERE 1=1 AND Id1 = 1'--This param, dont expose to public interfaces
+SET @filter = 'WHERE 1=1'--This param, dont expose to public interfaces
 
 --Defaults
 SET @schema = COALESCE(@schema, 'dbo')
@@ -23,7 +23,7 @@ FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = @table and TABLE_SCHEMA = @sc
 SET @keycolumns = LEFT(@keycolumns, LEN(@keycolumns) - 1)
 SET @columns = LEFT(@columns, LEN(@columns) - 1)
 
-PRINT 'We gonna run this: ' + concat('SELECT ', @keycolumns, ', HASHBYTES (''SHA'', concat(', @columns, ')) FROM ', @schema, '.', @table, SPACE(1) , @filter)
 SET @statement = concat('SELECT ', @keycolumns, ', HASHBYTES (''SHA'', concat(', @columns, ')) FROM ', @schema, '.', @table, SPACE(1), @filter)
+PRINT 'We gonna run this: ' + @statement;
 
 exec sp_executesql @statement
