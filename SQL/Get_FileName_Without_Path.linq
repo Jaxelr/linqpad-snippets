@@ -15,11 +15,5 @@ DECLARE @Input varchar(256) = 'C:\Temp\myFile.txt';
 
 SET NOCOUNT ON;
 SET XACT_ABORT ON;
-	
-DECLARE @LastIndex int = (LEN(@Input)) - CHARINDEX(@Delimiter, REVERSE(@Input));
 
---If the record sent doesnt have the delimiter lets se it to -1
-SET @LastIndex = IIF(@LastIndex = LEN(@Input), -1, @LastIndex);
-DECLARE @FileOnly varchar(256) = RIGHT(@Input, len(@Input) - @LastIndex - 1);
-
-SELECT @FileOnly;
+SELECT right(@Input, charindex(@delimiter, reverse(@Input) + @delimiter) - 1);
