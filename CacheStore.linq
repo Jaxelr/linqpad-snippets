@@ -13,11 +13,14 @@ public class Store
 {
 	private readonly IMemoryCache cache;
 	private readonly CacheConfig props;
+	private long Count;
 
 	public Store(IMemoryCache cache, CacheConfig props)
 	{
 		this.cache = cache;
 		this.props = props;
+		
+		Count = 0;
 	}
 
 	public T GetOrSetCache<T>(string key, Func<T> fn)
@@ -38,9 +41,11 @@ public class Store
 
 			var options = new MemoryCacheEntryOptions()
 				.SetAbsoluteExpiration(TimeSpan.FromSeconds(props.CacheTimespan))
-				.SetSize(props.CacheMaxSize);
+				.RegisterPostEvictionCallback(callback: Eviction, state: this)
+				.SetSize(Count);
 
 			cache.Set(realKey, res, options);
+			Count++;
 		}
 	}
 
@@ -54,6 +59,11 @@ public class Store
 		}
 
 		return (fn(), false);
+	}
+	
+	private void Eviction(object key, object value, EvictionReason reason, object state)
+	{
+		Count--;
 	}
 }
 
