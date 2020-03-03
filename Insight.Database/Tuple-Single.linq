@@ -1,13 +1,13 @@
 <Query Kind="Program">
   <NuGetReference>Insight.Database</NuGetReference>
   <Namespace>Insight.Database</Namespace>
+  <Namespace>System.Data.SqlClient</Namespace>
 </Query>
 
 //Tuple Singleing using Insight.Database.
 
 void Main()
 {
-	
 	var conn = new SqlConnection(MyExtensions.SQLConnectionString);
 	SqlInsightDbProvider.RegisterProvider();
 	
