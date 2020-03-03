@@ -1,6 +1,7 @@
 <Query Kind="Program">
   <NuGetReference>Insight.Database</NuGetReference>
   <Namespace>Insight.Database</Namespace>
+  <Namespace>System.Data.SqlClient</Namespace>
 </Query>
 
 //Parent-Child-GrandChild-Query

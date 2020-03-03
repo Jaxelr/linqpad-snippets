@@ -2,6 +2,7 @@
   <NuGetReference>Insight.Database</NuGetReference>
   <Namespace>Insight.Database</Namespace>
   <Namespace>Insight.Database.Structure</Namespace>
+  <Namespace>System.Data.SqlClient</Namespace>
 </Query>
 
 void Main()
