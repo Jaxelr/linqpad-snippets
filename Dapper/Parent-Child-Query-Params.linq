@@ -1,6 +1,8 @@
 <Query Kind="Program">
   <NuGetReference>Dapper</NuGetReference>
+  <NuGetReference>System.Data.SqlClient</NuGetReference>
   <Namespace>Dapper</Namespace>
+  <Namespace>System.Data.SqlClient</Namespace>
 </Query>
 
 void Main()
