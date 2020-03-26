@@ -28,7 +28,7 @@ static class Extensions
 			return new T[] { item };
 		}
 
-		T[] result = new T[array.Length + 1];
+		var result = new T[array.Length + 1];
 		for (int i = 0; i < array.Length; i++)
 		{
 			result[i] = array[i];
@@ -44,7 +44,7 @@ static class Extensions
 		{
 			return new T[] { item };
 		}
-		T[] result = new T[array.Length + 1];
+		var result = new T[array.Length + 1];
 		array.CopyTo(result, 0);
 		result[array.Length] = item;
 		return result;
@@ -61,7 +61,7 @@ static class Extensions
 
 	public static T[] AppendToList<T>(this T[] array, T item)
 	{
-		List<T> list = new List<T>(array);
+		var list = new List<T>(array);
 		list.Add(item);
 
 		return list.ToArray();
