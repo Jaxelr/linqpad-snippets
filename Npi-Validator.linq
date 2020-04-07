@@ -19,6 +19,7 @@ public bool ValidateNpi(string Npi)
 		return false;
 	}
 	
+	//Quick and dirty way to convert a string into IENumerable<int>
 	return ValidateNpi(Npi.Select(a => a - '0'));
 }
 
@@ -52,14 +53,14 @@ private bool ValidateNpi(IEnumerable<int> Npi)
 		{
 			accumulator = accumulator + item;
 		}
-
 		index++;
 	}
-	
+
 	return (Ceil(accumulator + 24) - (accumulator + 24) == checkDigit) ? true : false;
 
 	int Ceil(int a)
 	{
+		//Given an integer, we get the next tenth ie: 66 -> 70, 71 -> 80, etc...
 		return (int)Math.Ceiling((double)a / 10) * 10;
 	}
 }
