@@ -1,4 +1,4 @@
-<Query Kind="Statements" />
+<Query Kind="Expression" />
 
 public static class DateTimeExtensions
 {
