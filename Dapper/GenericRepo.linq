@@ -1,19 +1,14 @@
-<Query Kind="Program">
+<Query Kind="Expression">
   <NuGetReference>Dapper</NuGetReference>
   <Namespace>Dapper</Namespace>
 </Query>
 
-void Main()
-{
-	
-}
-
 // Define other methods and classes here
-public class SampleRepo
+public class GenericRepo
 {
 	private readonly IDbConnection Connection;
 
-	public SampleRepo(IDbConnection connection)
+	public GenericRepo(IDbConnection connection)
 	{
 		Connection = connection;
 	}
