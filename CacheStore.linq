@@ -5,7 +5,6 @@
 
 void Main()
 {
-	
 }
 
 //Store: this is where the interaction with the cache is perform.
@@ -86,7 +85,37 @@ public class Key
 			throw new ArgumentNullException($"Argument {nameof(field)} cannot be null");
 		}
 
+		if (type.IsIEnumerable() || type.IsArray)
+		{
+			return $"{type.Name}{FieldSeparator}{type.GetAnyElementType()}{FieldSeparator}{field}";
+		}
+
 		return $"{type.Name}{FieldSeparator}{field}";
+	}
+}
+
+public static class TypeExtension
+{
+	public static bool IsIEnumerable(this Type type) => (type.GetInterface(nameof(IEnumerable)) != null);
+
+
+	public static Type GetAnyElementType(this Type type)
+	{
+		if (type == typeof(string))
+			return typeof(string);
+
+		if (type.IsArray)
+			return type.GetElementType();
+
+		if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(IEnumerable<>))
+			return type.GetGenericArguments()[0];
+
+		// type implements/extends IEnumerable<T>;
+		var enumType = type.GetInterfaces()
+								.Where(t => t.IsGenericType &&
+									   t.GetGenericTypeDefinition() == typeof(IEnumerable<>))
+								.Select(t => t.GenericTypeArguments[0]).FirstOrDefault();
+		return enumType ?? type;
 	}
 }
 
