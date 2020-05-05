@@ -7,7 +7,7 @@
 
 void Main()
 {
-	var conn = new SqlConnection("Server=localhost;database=master;Trusted_Connection=true;");
+	var conn = new SqlConnection(MyExtensions.SQLConnectionString);
 	SqlInsightDbProvider.RegisterProvider();
 
 	var response = conn.QuerySql(@"SELECT 1 ParentId, 'Jaxel' Name, 'Rojas' SecondName, 3 ChildId, 'Seba' ChildName, 'Rojas' SecondChildName UNION
