@@ -35,7 +35,7 @@ void Main(string[] args)
 				sw.WriteLine(a);
 			}
 
-			stream.Close();
+			sw.Close();
 		}
 
 		if (Debugger.IsAttached)
