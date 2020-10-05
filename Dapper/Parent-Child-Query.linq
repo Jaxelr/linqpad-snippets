@@ -18,16 +18,18 @@ void Main()
 	FROM Parent p LEFT JOIN Child c ON p.ParentId = c.ParentId",
 	(parent, child) =>
 	{
-		if (child == null)
+		if (child is null)
 		{
 			return parent;
 		}
 		
 		if (!lookup.TryGetValue(parent.ParentId, out Parent found))
 		{
-				lookup.Add(child.ChildId, found = parent);
+			lookup.Add(child.ChildId, found = parent);
 		}
+		
 		found.Childs = found.Childs.Concat(new Child[] { child }).ToArray();
+		
 		return found;
 		
 	}, splitOn: "ChildId").Distinct();

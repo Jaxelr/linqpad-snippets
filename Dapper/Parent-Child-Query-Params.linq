@@ -20,11 +20,18 @@ void Main()
 	WHERE p.ParentId = @Id",
 	(parent, child) =>
 	{
+		if (child is null)
+		{
+			return parent;
+		}
+		
 		if (!lookup.TryGetValue(parent.ParentId, out Parent found))
 		{
 			lookup.Add(child.ChildId, found = parent);
 		}
+		
 		found.Childs.Add(child);
+		
 		return found;
 	}, 
 	new { Id },
