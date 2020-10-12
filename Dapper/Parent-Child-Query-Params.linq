@@ -27,7 +27,7 @@ void Main()
 		
 		if (!lookup.TryGetValue(parent.ParentId, out Parent found))
 		{
-			lookup.Add(child.ChildId, found = parent);
+			lookup.Add(parent.ParentId, found = parent);
 		}
 		
 		found.Childs.Add(child);
