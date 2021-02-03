@@ -1,10 +1,12 @@
-<Query Kind="Expression" />
+<Query Kind="Statements" />
 
 public static class TypeExtension
 { 
 	public static bool IsIEnumerable(this Type type) => (type.GetInterface(nameof(IEnumerable)) != null);
 	
 	public static bool IsCollection(this Type type) => (type.GetInterface(nameof(ICollection)) != null);
+	
+	public static bool IsArray(this Type type) => (type.BaseType == typeof(Array));
 	
 	public static Type GetAnyElementType(this Type type)
 	{
