@@ -6,6 +6,7 @@
   <Reference>&lt;RuntimeDirectory&gt;\System.Web.dll</Reference>
   <Reference>&lt;RuntimeDirectory&gt;\System.Web.Services.dll</Reference>
   <NuGetReference>EnyimMemcachedCore</NuGetReference>
+  <NuGetReference>Microsoft.Extensions.Configuration</NuGetReference>
   <NuGetReference>Microsoft.Extensions.DependencyInjection</NuGetReference>
   <NuGetReference>Microsoft.Extensions.Logging</NuGetReference>
   <NuGetReference>Newtonsoft.Json</NuGetReference>
@@ -14,8 +15,8 @@
   <Namespace>Enyim.Caching.Memcached.Transcoders</Namespace>
   <Namespace>Microsoft.Extensions.Configuration</Namespace>
   <Namespace>Microsoft.Extensions.DependencyInjection</Namespace>
-  <Namespace>Newtonsoft.Json.Linq</Namespace>
   <Namespace>Newtonsoft.Json</Namespace>
+  <Namespace>Newtonsoft.Json.Linq</Namespace>
 </Query>
 
 void Main()
