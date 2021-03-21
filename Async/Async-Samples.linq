@@ -4,12 +4,13 @@
 
 void Main()
 {
-	//This method awaits all Tasks.
+	//This method awaits all Tasks and blocks the thread.
 	WaitAll();
 	
 	//This method awaits only the first Task finished.
 	Task.Run (() => WhenAny());
 	
+	//This method awaits all tasks but it doesnt block the thread.
 	Task.Run (() => WhenAll());
 }
 
@@ -27,7 +28,7 @@ public void WaitAll()
 	TaskThree.Result.Dump("Should be 3");
 }
 
-// Synchronously Wait all tasks in parallel.
+// Asynchronously (returns Task) Wait all tasks in parallel.
 public async Task WhenAll()
 {
 	var TaskOne = CallMe("One");
@@ -41,6 +42,7 @@ public async Task WhenAll()
 	TaskThree.Result.Dump("Should be 3");
 }
 
+// Asyncrhornously await any of the task to finish in parallel.
 public async Task WhenAny()
 {
 	var TaskOne = CallMe("One");
