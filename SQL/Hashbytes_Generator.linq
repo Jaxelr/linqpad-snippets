@@ -12,7 +12,7 @@ SET @schema = COALESCE(@schema, 'dbo')
 --
 
 --concat all keys
-SELECT @keycolumns = COALESCE(concat(@keycolumns, COLUMN_NAME, ','), COLUMN_NAME)
+SELECT @keycolumns = COALESCE(concat(@keycolumns, '[',COLUMN_NAME, ']', ','), COLUMN_NAME)
 FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE WHERE TABLE_NAME = @table and TABLE_SCHEMA = @schema
 
 --concat all collumns
@@ -23,7 +23,7 @@ FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = @table and TABLE_SCHEMA = @sc
 SET @keycolumns = LEFT(@keycolumns, LEN(@keycolumns) - 1)
 SET @columns = LEFT(@columns, LEN(@columns) - 1)
 
-SET @statement = concat('SELECT ', @keycolumns, ', HASHBYTES (''SHA'', concat(', @columns, ')) FROM ', @schema, '.', @table, SPACE(1), @filter)
+SET @statement = concat('SELECT ', @keycolumns, ', HASHBYTES (''SHA'', CONCAT(', @columns, ')) FROM ', @schema, '.', @table, SPACE(1), @filter)
 PRINT 'We gonna run this: ' + @statement;
 
 exec sp_executesql @statement
