@@ -16,7 +16,7 @@ SELECT @keycolumns = COALESCE(concat(@keycolumns, '[',COLUMN_NAME, ']', ','), CO
 FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE WHERE TABLE_NAME = @table and TABLE_SCHEMA = @schema
 
 --concat all collumns
-SELECT @columns = COALESCE(concat(@columns, COLUMN_NAME, ','), COLUMN_NAME)
+SELECT @columns = COALESCE(concat(@columns, '[', COLUMN_NAME, ']', ','), COLUMN_NAME)
 FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = @table and TABLE_SCHEMA = @schema
 
 --remove the ending commas
