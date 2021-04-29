@@ -1,5 +1,7 @@
 <Query Kind="SQL" />
 
+--This doesnt work for multiple keys, ive been slacking into refactoring it to a correct structure
+
 SELECT 
 --Add Constraints 
 'ALTER TABLE [' + s.NAME + '].[' + t.NAME 
