@@ -1,3 +1,11 @@
+<Query Kind="Program">
+  <NuGetReference>CsvHelper</NuGetReference>
+  <Namespace>System.Globalization</Namespace>
+  <Namespace>CsvHelper.Configuration</Namespace>
+  <Namespace>CsvHelper</Namespace>
+  <IncludeUncapsulator>false</IncludeUncapsulator>
+</Query>
+
 void Main()
 {
 	/* Data */
