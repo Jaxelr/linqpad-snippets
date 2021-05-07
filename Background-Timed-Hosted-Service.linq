@@ -1,13 +1,8 @@
-<Query Kind="Program">
+<Query Kind="Statements">
   <NuGetReference>Microsoft.Extensions.Hosting.Abstractions</NuGetReference>
   <Namespace>System.Threading.Tasks</Namespace>
   <Namespace>Microsoft.Extensions.Hosting</Namespace>
 </Query>
-
-void Main()
-{
-	
-}
 
 public class BackgroundTimedHostedService : IHostedService
 {
