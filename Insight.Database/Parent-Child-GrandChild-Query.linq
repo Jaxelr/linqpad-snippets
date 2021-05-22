@@ -7,10 +7,10 @@
 //Parent-Child-GrandChild-Query
 void Main()
 {
-	var conn = new SqlConnection(MyExtensions.SQLConnectionString);
+	var connection = new SqlConnection(MyExtensions.SQLConnectionString);
 	SqlInsightDbProvider.RegisterProvider();
 
-	var repo = conn.As<HelloRepo>();
+	var repo = connection.As<HelloRepo>();
 
 	var res1 = repo.GetParent();
 	res1.Dump();

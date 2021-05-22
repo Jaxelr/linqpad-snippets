@@ -6,10 +6,10 @@
 
 void Main()
 {
-	var conn = new SqlConnection(MyExtensions.SQLConnectionString);
+	var connection = new SqlConnection(MyExtensions.SQLConnectionString);
 	SqlInsightDbProvider.RegisterProvider();
 
-	var response = conn.Query(@"SELECT 1 ParentId, 'Jaxel' Name, 'Rojas' SecondName
+	var response = connection.Query(@"SELECT 1 ParentId, 'Jaxel' Name, 'Rojas' SecondName
                     SELECT 1 ParentId, 4 ChildId, 'Aidan' ChildName, 'Rojas' SecondChildName", Parameters.Empty, 
 		Query.Returns<Parent>().ThenChildren(Some<Child>.Records), CommandType.Text);
 		

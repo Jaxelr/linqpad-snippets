@@ -6,10 +6,10 @@
 
 void Main()
 {
-	var conn = new SqlConnection(MyExtensions.SQLConnectionString);
+	var connection = new SqlConnection(MyExtensions.SQLConnectionString);
 	SqlInsightDbProvider.RegisterProvider();
 
-	var repo = conn.As<HelloRepo>();
+	var repo = connection.As<HelloRepo>();
 
 	repo.GetType().Dump();
 

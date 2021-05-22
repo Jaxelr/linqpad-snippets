@@ -6,10 +6,10 @@
 
 void Main()
 {
-	var conn = new SqlConnection(MyExtensions.SQLConnectionString);
+	var connection = new SqlConnection(MyExtensions.SQLConnectionString);
 	SqlInsightDbProvider.RegisterProvider();
 	
-	var result = conn.SingleSql<Person>("SELECT 2 Age, 'Lana' Name");
+	var result = connection.SingleSql<Person>("SELECT 2 Age, 'Lana' Name");
 	
 	result.Dump();
 }

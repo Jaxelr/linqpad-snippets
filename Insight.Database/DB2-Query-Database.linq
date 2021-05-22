@@ -10,8 +10,8 @@
 
 void Main()
 {
-	var conn = new DB2Connection(MyExtensions.DB2ConnectionString);
-	var resp = conn.QuerySql<Response>("SELECT DISTINCT TCL_TYPE_CODE AS Code, TCL_TYPE_DESC AS Desc FROM TCL_TYPE_CD_LOOKUP");
+	var connection = new DB2Connection(MyExtensions.DB2ConnectionString);
+	var resp = connection.QuerySql<Response>("SELECT DISTINCT TCL_TYPE_CODE AS Code, TCL_TYPE_DESC AS Desc FROM TCL_TYPE_CD_LOOKUP");
 	
 	resp.Dump("TCL Codes");
 }

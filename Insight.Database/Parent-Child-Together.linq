@@ -7,10 +7,10 @@
 
 void Main()
 {
-	var conn = new SqlConnection(MyExtensions.SQLConnectionString);
+	var connection = new SqlConnection(MyExtensions.SQLConnectionString);
 	SqlInsightDbProvider.RegisterProvider();
 
-	var response = conn.QuerySql(@"SELECT 1 ParentId, 'Jaxel' Name, 'Rojas' SecondName, 3 ChildId, 'Seba' ChildName, 'Rojas' SecondChildName UNION
+	var response = connection.QuerySql(@"SELECT 1 ParentId, 'Jaxel' Name, 'Rojas' SecondName, 3 ChildId, 'Seba' ChildName, 'Rojas' SecondChildName UNION
                     SELECT 1 ParentId, 'Jaxel' Name, 'Rojas' SecondName, 4 ChildId, 'Aidan' ChildName, 'Rojas' SecondChildName", null, 
 		Query.Returns(Together<Parent, Child>.Records));
 		
