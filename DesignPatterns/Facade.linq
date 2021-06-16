@@ -20,7 +20,7 @@ public class Facade
 
 	public void Method()
 	{
-		"Facade Invoked".Dump("Facade");
+		"Invoked facade".Dump("Facade");
 		
 		subsystem1.Method1();
 		subsystem2.Method2();
@@ -31,7 +31,7 @@ public class Subsystem1
 {
 	public void Method1()
 	{
-		"Subsystem1 Invoked".Dump("Subsystem1");
+		"Invoked subsystem1".Dump("Subsystem1");
 	}
 }
 
@@ -39,6 +39,6 @@ public class Subsystem2
 { 
 	public void Method2()
 	{
-		"Subsystem2 Invoked".Dump("Subsystem2");
+		"Invoked subsystem2".Dump("Subsystem2");
 	}
 }

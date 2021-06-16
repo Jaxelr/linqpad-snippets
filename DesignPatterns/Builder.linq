@@ -18,7 +18,7 @@ void Main()
 	product.ShowProduct();
 }
 
-class Product
+public class Product
 { 
 	private List<string> parts = new List<string>();
 	
@@ -33,7 +33,7 @@ class Product
 	}
 }
 
-class Control
+public class Control
 { 
 	public void BuildUp(Builder builder)
 	{
@@ -42,14 +42,14 @@ class Control
 	}
 }
 
-abstract class Builder
+public abstract class Builder
 { 
 	public abstract void BuildOne();	
 	public abstract void BuildTwo();
 	public abstract Product GetProduct();
 }
 
-class RealBuilder : Builder
+public class RealBuilder : Builder
 {
 	private Product product = new Product();
 	
@@ -61,7 +61,7 @@ class RealBuilder : Builder
 
 }
 
-class RealerBuilder : Builder
+public class RealerBuilder : Builder
 {
 	private Product product = new Product();
 

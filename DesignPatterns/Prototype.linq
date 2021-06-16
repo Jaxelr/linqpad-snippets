@@ -10,7 +10,7 @@ void Main()
 }
 
 // You can define other methods, fields, classes and namespaces here
-abstract class Prototype
+public abstract class Prototype
 {
 	public Prototype(string Id)
 	{
@@ -22,7 +22,7 @@ abstract class Prototype
 	public abstract Prototype Clone();
 }
 
-class Implementation : Prototype
+public class Implementation : Prototype
 {
 	public Implementation(string Id) : base(Id)
 	{

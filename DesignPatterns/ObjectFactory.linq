@@ -15,13 +15,13 @@ void Main()
 	impl2.Dump();
 }
 
-abstract class Root
+public abstract class Root
 { 
 	public abstract string Type { get; }
 	public abstract int Value { get; set; }	
 }
 
-class Implementation1 : Root
+public class Implementation1 : Root
 {
 	private string _type;
 	private int _value;
@@ -48,7 +48,7 @@ class Implementation1 : Root
 	}
 }
 
-class Implementation2 : Root
+public class Implementation2 : Root
 {
 	private string _type;
 	private int _value;
@@ -76,7 +76,7 @@ class Implementation2 : Root
 }
 
 
-class RootFactory
+public class RootFactory
 {
 	public static Root GetRoot(string type, int? value = null)
 	{

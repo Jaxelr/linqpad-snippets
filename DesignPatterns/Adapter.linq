@@ -12,7 +12,7 @@ public class Destination
 { 
 	public virtual void Request()
 	{
-		"Call request".Dump("Destination");
+		"Invoked request".Dump("Destination");
 	}
 }
 
@@ -32,6 +32,6 @@ public class Source
 {
 	public void SourceRequest()
 	{
-		"Call Request".Dump("Source");
+		"Invoked request".Dump("Source");
 	}
 }

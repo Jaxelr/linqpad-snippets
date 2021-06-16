@@ -21,7 +21,7 @@ void Main()
 	root.Show(1);
 }
 
-abstract class Component
+public abstract class Component
 {
 	protected string name;
 
@@ -34,7 +34,7 @@ abstract class Component
 	public abstract void Show(int depth);
 }
 
-class Compost : Component
+public class Compost : Component
 {
 	private List<Component> children = new List<Component>();
 		
@@ -65,7 +65,7 @@ class Compost : Component
 	}
 }
 
-class Leaf : Component
+public class Leaf : Component
 {
 	public Leaf(string name) : base(name)
 	{

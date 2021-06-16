@@ -9,12 +9,12 @@ void Main()
 	abstraction.Operation();
 }
 
-abstract class Implementor
+public abstract class Implementor
 { 
 	public abstract void Operation();
 }
 
-class ConcreteImplementor : Implementor
+public class ConcreteImplementor : Implementor
 {
 	public override void Operation()
 	{
@@ -22,7 +22,7 @@ class ConcreteImplementor : Implementor
 	}
 }
 
-class Abstraction
+public class Abstraction
 { 
 	protected Implementor implementor;
 

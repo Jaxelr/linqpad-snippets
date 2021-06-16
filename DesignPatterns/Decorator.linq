@@ -10,12 +10,12 @@ void Main()
 	decorator.Operation();
 }
 
-abstract class Component
+public abstract class Component
 {
 	public abstract void Operation();
 }
 
-abstract class Decorator : Component
+public abstract class Decorator : Component
 { 
 	protected Component component;
 
@@ -30,7 +30,7 @@ abstract class Decorator : Component
 	}
 }
 
-class ComponentImplementation : Component
+public class ComponentImplementation : Component
 {
 	public override void Operation()
 	{
@@ -38,7 +38,7 @@ class ComponentImplementation : Component
 	}
 }
 
-class DecoratorImplementation : Decorator
+public class DecoratorImplementation : Decorator
 { 
 	public override void Operation()
 	{
