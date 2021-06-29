@@ -16,21 +16,18 @@ public abstract class Implementor
 
 public class ConcreteImplementor : Implementor
 {
-	public override void Operation()
-	{
+	public override void Operation() =>
 		"Concrete operation done.".Dump("Implementor");
-	}
+	
 }
 
 public class Abstraction
 { 
 	protected Implementor implementor;
 
-	public Implementor Implementor { set { implementor = value; } }
+	public Implementor Implementor { set => implementor = value; }
 	
-	public virtual void Operation()
-	{
-		implementor.Operation();
-	}
+	public virtual void Operation() => implementor.Operation();
+	
 }
 

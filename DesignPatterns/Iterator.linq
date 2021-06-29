@@ -33,25 +33,23 @@ public interface IAggregate
 
 public class Aggregate : IAggregate
 {
-	List<object> items;
+	Objects items;
 	
-	public Aggregate()
-	{
-		items = new List<object>();
-	}
+	public Aggregate() => items = new();
 	
-	public IIterator CreateIterator()
-	{
-		return new Iterator(this);
-	}
+	public IIterator CreateIterator() => new Iterator(this);
 	
 	public int Count => items.Count();
 
 	public object this[int index]
 	{
-		get { return items[index]; }
-		set { items.Insert(index, value); }
+		get => items[index]; 
+		set => items.Insert(index, value); 
 	}
+}
+
+public class Objects : List<object>
+{
 }
 
 public interface IIterator
@@ -67,10 +65,7 @@ public class Iterator : IIterator
 	private int current = 0;
 	private Aggregate aggregate;
 	
-	public Iterator(Aggregate aggregate)
-	{
-		this.aggregate = aggregate;
-	}
+	public Iterator(Aggregate aggregate) => this.aggregate = aggregate;
 	
 	public object CurrentItem() => aggregate[current];
 

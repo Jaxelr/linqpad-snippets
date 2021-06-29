@@ -19,23 +19,17 @@ public abstract class Decorator : Component
 { 
 	protected Component component;
 
-	public void SetComponent(Component component)
-	{
+	public void SetComponent(Component component) => 
 		this.component = component;
-	}
 	
-	public override void Operation()
-	{
-		component?.Operation();
-	}
+	public override void Operation() => component?.Operation();
+	
 }
 
 public class ComponentImplementation : Component
 {
-	public override void Operation()
-	{
+	public override void Operation() =>
 		"Ran operation on Component".Dump("ComponentImplementation");
-	}
 }
 
 public class DecoratorImplementation : Decorator

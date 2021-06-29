@@ -17,12 +17,9 @@ public class Memento
 { 
 	private readonly string state;
 	
-	public Memento(string state)
-	{
-		this.state = state;
-	}
-
-	public string State { get { return state; } }
+	public Memento(string state) => this.state = state;
+	
+	public string State { get => state; }
 }
 
 public class Storage
@@ -31,8 +28,8 @@ public class Storage
 	
 	public Memento Memento
 	{
-		set { memento = value; }
-		get { return memento;  }
+		set => memento = value; 
+		get => memento;
 	}
 }
 
@@ -42,7 +39,7 @@ public class Originator
 
 	public string State
 	{
-		get { return state; }
+		get => state; 
 		set
 		{
 			state = value;
@@ -50,11 +47,8 @@ public class Originator
 		}
 	}
 
-	public Memento CreateMemento()
-	{
-		return new Memento(state);
-	}
-
+	public Memento CreateMemento() => new Memento(state);
+	
 	public void SetMemento(Memento memento)
 	{
 		"Restoring state...".Dump("Originator Set Memento");

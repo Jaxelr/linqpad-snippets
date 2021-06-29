@@ -11,10 +11,7 @@ public class Proxy : Original
 { 
 	private ImplOriginal original = new();
 
-	public override void Request()
-	{
-		original?.Request();
-	}
+	public override void Request() => original?.Request();
 }
 
 public abstract class Original
@@ -24,8 +21,7 @@ public abstract class Original
 
 public class ImplOriginal : Original
 {
-	public override void Request()
-	{
+	public override void Request() =>
 		$"Invoked original implementation".Dump("Original Implementation");
-	}
+	
 }

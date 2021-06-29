@@ -12,7 +12,6 @@ void Main()
 	int[] requests = { 2, 5, 14, 22, 18, 3, 27, 20 };
 
 	foreach (int request in requests)
-
 	{
 		h1.HandleRequest(request);
 	}
@@ -22,11 +21,8 @@ public abstract class Handler
 { 
 	protected Handler successor;
 	
-	public void SetSuccessor(Handler successor)
-	{
-		this.successor = successor;
-	}
-	
+	public void SetSuccessor(Handler successor) => this.successor = successor;
+		
 	public abstract void HandleRequest(int request);
 }
 

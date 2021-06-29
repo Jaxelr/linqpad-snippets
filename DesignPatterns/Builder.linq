@@ -20,17 +20,15 @@ void Main()
 
 public class Product
 { 
-	private List<string> parts = new List<string>();
+	private Parts parts = new();
 	
-	public void Add(string part)
-	{
-		parts.Add(part);
-	}
+	public void Add(string part) => parts.Add(part);
 	
-	public void ShowProduct()
-	{
-		parts.ForEach(x => x.Dump("Product Parts"));
-	}
+	public void ShowProduct() => parts.ForEach(x => x.Dump("Product Parts"));
+}
+
+public class Parts : List<string>
+{
 }
 
 public class Control

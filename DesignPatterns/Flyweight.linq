@@ -30,10 +30,8 @@ public class FlyweightFact
 		flies.Add("Key3", new ImplFlyweight());
 	}
 
-	public Flyweight GetFly(string key)
-	{
-		return flies[key];
-	}
+	public Flyweight GetFly(string key) => flies[key];
+	
 }
 
 public abstract class Flyweight
@@ -43,17 +41,13 @@ public abstract class Flyweight
 
 public class ImplFlyweight : Flyweight
 {
-	public override void Operation(int state)
-	{
+	public override void Operation(int state) =>
 		$"Implemented Flyweight: {state}".Dump();
-	}
 }
 
 public class HiddenFlyweight : Flyweight
 {
-	public override void Operation(int state)
-	{
+	public override void Operation(int state) =>
 		$"Hidden Flyweight: {state}".Dump();
-	}
 }
 

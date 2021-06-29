@@ -29,16 +29,10 @@ public class Facade
 
 public class Subsystem1
 {
-	public void Method1()
-	{
-		"Invoked subsystem1".Dump("Subsystem1");
-	}
+	public void Method1() => "Invoked subsystem1".Dump("Subsystem1");
 }
 
 public class Subsystem2
 { 
-	public void Method2()
-	{
-		"Invoked subsystem2".Dump("Subsystem2");
-	}
+	public void Method2() => "Invoked subsystem2".Dump("Subsystem2");
 }

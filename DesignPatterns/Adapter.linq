@@ -10,10 +10,7 @@ void Main()
 // You can define other methods, fields, classes and namespaces here
 public class Destination
 { 
-	public virtual void Request()
-	{
-		"Invoked request".Dump("Destination");
-	}
+	public virtual void Request() => "Invoked request".Dump("Destination");
 }
 
 public class Adapter : Destination
@@ -30,8 +27,5 @@ public class Adapter : Destination
 
 public class Source
 {
-	public void SourceRequest()
-	{
-		"Invoked request".Dump("Source");
-	}
+	public void SourceRequest() => "Invoked request".Dump("Source");
 }

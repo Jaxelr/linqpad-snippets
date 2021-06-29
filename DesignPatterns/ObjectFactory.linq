@@ -26,25 +26,16 @@ public class Implementation1 : Root
 	private string _type;
 	private int _value;
 
-	public Implementation1(int Value) : base()
-	{
-		_value = Value;
-	}
+	public Implementation1(int Value) : base() => _value = Value;
 
-	public Implementation1()
-	{
-		_type = nameof(Implementation1);
-	}
-
-	public override string Type
-	{
-		get { return _type; }
-	}
+	public Implementation1() => _type = nameof(Implementation1);
+	
+	public override string Type { get => _type; }
 
 	public override int Value
 	{
-		get { return _value; }
-		set { _value = value; }
+		get => _value; 
+		set => _value = value; 
 	}
 }
 
@@ -53,28 +44,18 @@ public class Implementation2 : Root
 	private string _type;
 	private int _value;
 
-	public Implementation2(int Value) : base()
-	{
-		_value = Value;
-	}
+	public Implementation2(int Value) : base() => _value = Value;
+	
+	public Implementation2() => _type = nameof(Implementation2);
 
-	public Implementation2()
-	{
-		_type = nameof(Implementation2);
-	}
-
-	public override string Type
-	{
-		get { return _type; }
-	}
+	public override string Type { get => _type; }
 
 	public override int Value
 	{
-		get { return _value; }
-		set { _value = value; }
+		get => _value; 
+		set => _value = value; 
 	}
 }
-
 
 public class RootFactory
 {
