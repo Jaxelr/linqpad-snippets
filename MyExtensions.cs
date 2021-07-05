@@ -10,6 +10,7 @@ public static class MyExtensions
 	public const string DB2ConnectionString = "Database=HSCRP;Server=10.31.1.68:60016;UserID=appsuid;Password=Comp1ete4you;CurrentSchema=HS";
 	public static string PostgresConnectionString => "Host=localhost;Port=5432;database=postgres;User ID=postgres;Password=postgres";
 	public static string MySqlConnectionString => "Server=127.0.0.1;Port=3306;Database=test;User Id=root;";
+	public static string SqliteConnectionString => "Data Source=test.db;Version=3;";
 }
 
 // You can also define non-static classes, enums, etc.
