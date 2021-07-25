@@ -5,7 +5,6 @@ void Main()
 	(int x, int y) = (0, 10);
 	var random = new Random();
 	
-
 	//Get Random number within range
 	random.Next(x, y)
 	.Dump();

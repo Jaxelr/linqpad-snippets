@@ -18,7 +18,6 @@ void Main()
 	String.Join(",", result).Dump();
 }
 
-// Define other methods, classes and namespaces here
 static class Extensions
 {
 	public static T[] Append<T>(this T[] array, T item)

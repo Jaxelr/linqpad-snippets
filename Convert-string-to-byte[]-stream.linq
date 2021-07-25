@@ -1,5 +1,5 @@
 <Query Kind="Statements">
-  <NuGetReference>Nancy</NuGetReference>
+  <IncludeUncapsulator>false</IncludeUncapsulator>
 </Query>
 
 //Create string
