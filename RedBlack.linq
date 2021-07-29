@@ -8,6 +8,9 @@ void Main()
 	redblack.Add(new CustomKey(2), "Dos");
 	redblack.Add(new CustomKey(3), "Tres");
 
+	var value = redblack.GetData(new CustomKey(2));
+	
+	value.Dump();
 }
 
 public class CustomKey : IComparable
