@@ -54,12 +54,15 @@ public class RedBlack<T>
 	{
 		identifier = string.Concat(base.ToString(), random.Next());
 		hashCode = random.Next();
+
+		Sentinel = new RedBlackNode<T>
+		{
+			Left = null,
+			Right = null,
+			Parent = null,
+			Color = RedBlackNode<T>.Black
+		};
 		
-		Sentinel = new RedBlackNode<T>();
-		Sentinel.Left = new RedBlackNode<T>();
-		Sentinel.Right = new RedBlackNode<T>();
-		Sentinel.Parent = new RedBlackNode<T>();
-		Sentinel.Color = RedBlackNode<T>.Black;
 		tree = Sentinel;
 		lastNode = Sentinel;
 	}
@@ -69,30 +72,30 @@ public class RedBlack<T>
 		hashCode = random.Next();
 		this.identifier = identifier;
 	}
-	
+
 	public void Add(IComparable key, T data)
 	{
 		if (key is null || data is null)
 			throw new RedBlackException("Key and data must not be null");
-			
-		int result = 0;
+
 		var node = new RedBlackNode<T>();
 		var temp = tree;
 
+		int result;
 		while (temp != Sentinel)
 		{
 			node.Parent = temp;
 			result = key.CompareTo(temp.Key);
-			
+
 			if (result == 0)
 				throw new RedBlackException("A node with the same key exists");
-			
+
 			if (result > 0)
 				temp = temp.Right;
 			else
 				temp = temp.Left;
 		}
-		
+
 		node.Key = key;
 		node.Data = data;
 		node.Left = Sentinel;
@@ -101,21 +104,23 @@ public class RedBlack<T>
 		if (node.Parent is not null)
 		{
 			result = node.Key.CompareTo(node.Parent.Key);
-			
+
 			if (result > 0)
 				node.Parent.Right = node;
 			else
 				node.Parent.Left = node;
 		}
 		else
+		{
 			tree = node;
-			
+		}
+
 		RestoreAfterInsert(node);
 		lastNode = node;
-		
+
 		count++;
 	}
-	
+
 	private void RestoreAfterInsert(RedBlackNode<T> node)
 	{
 		RedBlackNode<T> t;
@@ -361,7 +366,7 @@ public class RedBlack<T>
 		}
 		
 		if (work.Color == RedBlackNode<T>.Black)
-			//RestoreAfterDelete
+			RestoreAfterDelete(replacement);
 		
 		lastNode = Sentinel;
 	}
@@ -453,15 +458,15 @@ public class RedBlack<T>
 	
 	public RedBlackEnumerator<T> Keys() => Keys(true);
 	
-	public RedBlackEnumerator<T> Keys(bool ascending) => new RedBlackEnumerator<T>(tree, true, true);
+	public RedBlackEnumerator<T> Keys(bool ascending) => new(tree, true, ascending);
 	
 	public RedBlackEnumerator<T> Values() => Elements(true);
 	
 	public RedBlackEnumerator<T> Elements() => Elements(true);
 	
-	public RedBlackEnumerator<T> Elements(bool ascending) => new RedBlackEnumerator<T>(tree, false, ascending);
+	public RedBlackEnumerator<T> Elements(bool ascending) => new(tree, false, ascending);
 
-	public bool IsEmpty() => (tree is null);
+	public bool IsEmpty() => tree is null;
 	
 	public void Clear()
 	{
@@ -472,7 +477,7 @@ public class RedBlack<T>
 
 public class RedBlackEnumerator<T>
 { 
-	private Stack<RedBlackNode<T>> stack = new Stack<RedBlackNode<T>>();
+	private Stack<RedBlackNode<T>> stack = new();
 	private bool keys;
 	private bool ascending;
 	
