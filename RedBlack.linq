@@ -8,7 +8,7 @@ void Main()
 	redblack.Add(new CustomKey(2), "Dos");
 	redblack.Add(new CustomKey(3), "Tres");
 
-	var value = redblack.GetData(new CustomKey(2));
+	var value = redblack.GetData(new CustomKey(3));
 	
 	value.Dump();
 }
@@ -189,7 +189,7 @@ public class RedBlack<T>
 		
 		node.Right = temp.Left;
 		
-		if (temp.Left != Sentinel)
+		if (temp.Left != Sentinel && temp.Left is not null)
 			temp.Left.Parent = node;
 
 		if (node.Parent is not null)
@@ -216,7 +216,7 @@ public class RedBlack<T>
 		
 		node.Left = temp.Right;
 		
-		if (temp.Right != Sentinel)
+		if (temp.Right != Sentinel && temp.Right is not null)
 			temp.Right.Parent = node;
 			
 		if(temp != Sentinel)
@@ -599,7 +599,7 @@ public class RedBlackNode<T>
 	}
 }
 
-class RedBlackException : Exception
+public class RedBlackException : Exception
 { 
 	public RedBlackException()
 	{
