@@ -24,7 +24,7 @@ BEGIN
 		REPLACE(
 		REPLACE(
 		REPLACE(
-		@inputString COLLATE Latin1_General_CS_AS, //This ensures the collation is case sensitive on comparison for latin chars
+		@inputString COLLATE Latin1_General_CS_AS, /*This ensures the collation is case sensitive on comparison for latin chars*/
 		'Ñ', 'N'),
 		'É', 'E'),
 		'Ó', 'O'),
