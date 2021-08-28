@@ -7,13 +7,13 @@ string input = $"Hello World, my custom id is: {Guid.NewGuid()}";
 input.Dump("My input");
 
 //Cast from string into byte array
-var datum = Encoding.ASCII.GetBytes(input);
+byte[] datum = Encoding.UTF8.GetBytes(input);
 
 //Cast from byte array into stream
 var stream = new MemoryStream(datum);
 
 //Cast from byte array into string
-string output = Encoding.ASCII.GetString(datum);
+string output = Encoding.UTF8.GetString(datum);
 
 output.Dump("My output from byte[]");
 
