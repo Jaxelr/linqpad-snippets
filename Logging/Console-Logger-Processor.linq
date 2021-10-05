@@ -1,4 +1,4 @@
-<Query Kind="Expression" />
+<Query Kind="Statements" />
 
 // Copied from: https://github.com/aspnet/Logging/blob/master/src/Microsoft.Extensions.Logging.Console/Internal/ConsoleLoggerProcessor.cs
 // On date: 2020-04-30
@@ -6,9 +6,7 @@
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-using System;
 using System.Collections.Concurrent;
-using System.Threading;
 
 public class ConsoleLoggerProcessor : IDisposable
 {
@@ -95,4 +93,22 @@ public class ConsoleLoggerProcessor : IDisposable
 		}
 		catch (ThreadStateException) { }
 	}
+}
+
+public struct LogMessageEntry
+{
+	public string TimeStamp;
+	public string LevelString;
+	public ConsoleColor? LevelBackground;
+	public ConsoleColor? LevelForeground;
+	public ConsoleColor? MessageColor;
+	public string Message;
+	public bool LogAsError;
+}
+
+public interface IConsole
+{
+	void Write(string message, ConsoleColor? background, ConsoleColor? foreground);
+	void WriteLine(string message, ConsoleColor? background, ConsoleColor? foreground);
+	void Flush();
 }
