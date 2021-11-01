@@ -24,7 +24,7 @@ void Main()
 
 		// Download the file
 		ShareFileDownloadInfo download = file.Download();
-		using (FileStream stream = File.OpenWrite(localFilePath))
+		using (var stream = File.OpenWrite(localFilePath))
 		{
 			download.Content.CopyTo(stream);
 		}

@@ -27,6 +27,7 @@ void Main()
 
 			using var stream = File.OpenRead(file);
 			fileClient.Create(stream.Length);
+			fileClient.UploadRange(new HttpRange(0, stream.Length), stream);
 		}
 
 	}
