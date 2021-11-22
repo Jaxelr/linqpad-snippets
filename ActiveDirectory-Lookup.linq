@@ -2,19 +2,18 @@
   <Reference>&lt;RuntimeDirectory&gt;\System.DirectoryServices.AccountManagement.dll</Reference>
   <Reference>&lt;RuntimeDirectory&gt;\System.DirectoryServices.dll</Reference>
   <Reference>&lt;RuntimeDirectory&gt;\System.Configuration.dll</Reference>
-  <Namespace>System.DirectoryServices.AccountManagement</Namespace>
+  <NuGetReference>System.DirectoryServices.AccountManagement</NuGetReference>
   <Namespace>System.DirectoryServices</Namespace>
   <Namespace>System.DirectoryServices.ActiveDirectory</Namespace>
+  <Namespace>System.DirectoryServices.AccountManagement</Namespace>
 </Query>
-
-// 
 
 void Main()
 {
 	var result = ActiveDirectoryHelper.GetCurrentDomains();
 	
-	var df = ActiveDirectoryHelper.GetUserGroups("tsajrl1", result);
-	var df2 = ActiveDirectoryHelper.GetUserGroups("xsoler", result);
+	var df = ActiveDirectoryHelper.GetUserGroups("user1", result);
+	var df2 = ActiveDirectoryHelper.GetUserGroups("user2", result);
 	
 	df.Dump();
 	df2.Dump();
