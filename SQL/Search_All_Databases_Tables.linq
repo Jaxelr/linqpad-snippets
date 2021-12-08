@@ -9,10 +9,10 @@ DECLARE
     ,@SearchSchema NVARCHAR(200)
     ,@SearchTable NVARCHAR(200)
     ,@SQL NVARCHAR(4000);
-SET @SearchDb = '%';
-SET @SearchSchema = '%';
-SET @SearchTable = '%{searchmehere}%';
-SET @SQL = 'select ''?'' as DbName, s.name as SchemaName, t.name as TableName from [?].sys.tables t inner join sys.schemas s on t.schema_id=s.schema_id WHERE ''?'' LIKE ''' + @SearchDb + ''' AND s.name LIKE ''' + @SearchSchema + ''' AND t.name LIKE ''' + @SearchTable + '''';
+SET @SearchDb = N'%';
+SET @SearchSchema = N'%';
+SET @SearchTable = N'%{searchmehere}%';
+SET @SQL = N'select ''?'' as DbName, s.name as SchemaName, t.name as TableName from [?].sys.tables t inner join sys.schemas s on t.schema_id=s.schema_id WHERE ''?'' LIKE ''' + @SearchDb + ''' AND s.name LIKE ''' + @SearchSchema + ''' AND t.name LIKE ''' + @SearchTable + '''';
 
 INSERT INTO @AllTables(DbName, SchemaName, TableName) EXECUTE sp_msforeachdb @SQL;
 
