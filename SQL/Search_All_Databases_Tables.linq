@@ -9,12 +9,20 @@ DECLARE
     ,@SearchSchema NVARCHAR(200)
     ,@SearchTable NVARCHAR(200)
     ,@SQL NVARCHAR(4000);
-SET @SearchDb = N'%';
-SET @SearchSchema = N'%';
-SET @SearchTable = N'%{searchmehere}%';
-SET @SQL = N'select ''?'' as DbName, s.name as SchemaName, t.name as TableName from [?].sys.tables t inner join sys.schemas s on t.schema_id=s.schema_id WHERE ''?'' LIKE ''' + @SearchDb + ''' AND s.name LIKE ''' + @SearchSchema + ''' AND t.name LIKE ''' + @SearchTable + '''';
+	
+/* Leave empty if optional */
+SET @SearchTable = N'{searchmehere}';
+SET @SearchSchema = N''; 
+SET @SearchDb = N'';
+
+SET @SQL = CONCAT(N'SELECT  ''?'' as DbName, s.name as SchemaName, t.name as TableName from [?].sys.tables t
+			inner join sys.schemas s on t.schema_id=s.schema_id 	
+			where 1=1 
+				and t.name like ''%'' + ''' , @SearchTable , N''' + ''%'' and s.name like ''%'' + ''', 
+				@SearchSchema, N''' + ''%'' and ''?'' like ''%'' + ''', @SearchDb,  N''' + ''%''');
 
 INSERT INTO @AllTables(DbName, SchemaName, TableName) EXECUTE sp_msforeachdb @SQL;
 
-SET NOCOUNT OFF;
 SELECT * FROM @AllTables ORDER BY DbName, SchemaName, TableName;
+
+SET NOCOUNT OFF;
