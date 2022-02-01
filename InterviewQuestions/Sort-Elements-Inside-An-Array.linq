@@ -1,7 +1,5 @@
 <Query Kind="Program" />
 
-/*I had an interview question with this issue */
-
 void Main()
 {
 	int?[] myArray = new int?[] { null, null, 0, 0, 7};
