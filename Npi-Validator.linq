@@ -1,14 +1,19 @@
-<Query Kind="Program" />
+<Query Kind="Program">
+  <Namespace>Xunit</Namespace>
+</Query>
+
+#load "xunit"
 
 void Main()
 {
-	//1003347634 - Valid
-	//1093791627 - Invalid
-	ValidateNpi("1003347634").Dump();
-	ValidateNpi("1093791627").Dump();
+	RunTests();
 }
 
-// Define other methods, classes and namespaces here
+//1003347634 - Valid
+//1093791627 - Invalid
+const string Valid = "1003347634";
+const string Invalid = "1093791627";
+
 public bool ValidateNpi(string Npi)
 {
 	if (!int.TryParse(Npi, out _))
@@ -61,3 +66,10 @@ private bool ValidateNpi(IEnumerable<int> Npi)
 		return (int)Math.Ceiling((double)a / 10) * 10;
 	}
 }
+
+#region private::Tests
+
+[Fact] void Valid_Npi() => Assert.True (ValidateNpi(Valid));
+[Fact] void Invalid_Npi() => Assert.False (ValidateNpi(Invalid));
+
+#endregion
