@@ -4,11 +4,8 @@ void Main()
 {
 	//1003347634 - Valid
 	//1093791627 - Invalid
-
-	string arr = "1003347634";
-
-	ValidateNpi(arr)
-		.Dump();
+	ValidateNpi("1003347634").Dump();
+	ValidateNpi("1093791627").Dump();
 }
 
 // Define other methods, classes and namespaces here
