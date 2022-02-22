@@ -6,6 +6,9 @@
 
 void Main()
 {
+	ValidateNpi(Valid).Dump();
+	ValidateNpi(Invalid).Dump();
+	
 	RunTests();
 }
 

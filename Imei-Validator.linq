@@ -1,12 +1,19 @@
-<Query Kind="Program" />
+<Query Kind="Program">
+  <Namespace>Xunit</Namespace>
+</Query>
+
+#load "xunit"
 
 void Main()
 {
-	//Valid "358981879372208"
-	//Invalid "358981879372999"
-	ValidateIMEINumber("358981879372208").Dump();
-	ValidateIMEINumber("358981879372999").Dump();
+	ValidateIMEINumber(Valid).Dump();
+	ValidateIMEINumber(Invalid).Dump();
+	
+	RunTests();
 }
+
+const string Valid = "358981879372208";
+const string Invalid = "358981879372999";
 
 public bool ValidateIMEINumber(string Imei)
 {
@@ -39,3 +46,10 @@ private static bool CheckLuhnNumber(IEnumerable<int> number)
 
 	return (iSum % 10 == 0);
 }
+
+#region private::Tests
+
+[Fact] void Valid_Imei() => Assert.True(ValidateIMEINumber(Valid));
+[Fact] void Invalid_Imei() => Assert.False(ValidateIMEINumber(Invalid));
+
+#endregion
