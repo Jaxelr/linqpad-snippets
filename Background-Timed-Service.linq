@@ -16,7 +16,5 @@ public class BackgroundTimedService : BackgroundService
 			
 			await Task.Delay(TimeSpan.FromSeconds(1));
 		}
-		
-		
 	}
 }
