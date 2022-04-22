@@ -12,6 +12,9 @@ void Main()
 	
 	//This method awaits all tasks but it doesnt block the thread.
 	Task.Run (() => WhenAll());
+	
+	//This method is Invoked synched using Wait and fires on a diff thread.
+	CallMe("Two").Wait(TimeSpan.FromSeconds(2)).Dump("Main Thread");
 }
 
 // Synchronously Wait all tasks in parallel.
