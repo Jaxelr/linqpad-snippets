@@ -16,6 +16,9 @@ void Main()
 	
 	result = array.AppendToList(item);
 	String.Join(",", result).Dump();
+	
+	//For benchmark information on executing these scenarios please see:
+	//https://github.com/Jaxelr/Benchmarks/tree/master/AppendBenchmark 
 }
 
 static class Extensions
