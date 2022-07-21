@@ -17,7 +17,8 @@ public static void Retry(int times, TimeSpan delay, Action action)
 {
 	int retries = 0;
 	int backoff = 1;
-	do
+
+	while (true)
 	{
 		try 
 		{
@@ -25,14 +26,12 @@ public static void Retry(int times, TimeSpan delay, Action action)
 			action();
 			break;
 		}
-		catch
+		catch when (retries < times)
 		{
-			if (retries >= times)
-				throw;
-				
+			
 			Task.Delay(delay*backoff).Wait();
 			backoff+=backoff;
 		}
 		
-	} while(true);
+	}
 }
