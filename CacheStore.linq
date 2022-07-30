@@ -34,7 +34,7 @@ public class Store
 
 	public void SetCache<T>(string key, T res)
 	{
-		if (props.CacheEnabled)
+		if (props.CacheEnabled && props.CacheMaxSize > Count)
 		{
 			string realKey = Key.Create<T>(key);
 
@@ -124,5 +124,5 @@ public class CacheConfig
 {
 	public bool CacheEnabled { get; set; } //Enable or Disable
 	public int CacheTimespan { get; set; } //Timespan of persistence
-	public int CacheMaxSize { get; set; } //Mas size in bytes of the object to persist
+	public int CacheMaxSize { get; set; } //Max size in bytes of the object to persist
 }
