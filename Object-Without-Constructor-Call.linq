@@ -2,8 +2,8 @@
   <Namespace>System.Runtime.CompilerServices</Namespace>
 </Query>
 
-// Taken from this article
-// https://khalidabuhakmeh.com/create-dotnet-objects-without-calling-the-constructor
+/* Taken from this article
+ https://khalidabuhakmeh.com/create-dotnet-objects-without-calling-the-constructor */
 void Main()
 {
 	//You can create a .NET object without calling the constructor (?!)

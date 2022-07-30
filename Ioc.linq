@@ -79,7 +79,7 @@ public static class ContainerA
 	}
 }
 
-// Taken from this so post 
+// Taken from this SO post 
 // https://stackoverflow.com/questions/15715978/simple-dependency-resolver/15717047#15717047
 public class ContainerB
 {
@@ -118,7 +118,7 @@ public class ContainerB
 	}
 }
 
-// Taken from this ayende post
+// Taken from this Ayende post
 // https://ayende.com/blog/2886/building-an-ioc-container-in-15-lines-of-code
 public class ContainerC
 {
