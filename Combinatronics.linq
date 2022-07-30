@@ -1,9 +1,11 @@
 <Query Kind="Program" />
 
-/* Permutation lookup */
-/* I needed to find from a list of objects the plausible combination that amounts to a specific value */
-/* based on the sum of a specific field */
-/* In this scenario it is the sum of value, by any amount of POCOs */
+/* Permutation lookup 
+ * I needed to find from a list of objects the plausible combination that amounts to a specific value 
+ * based on the sum of a specific field 
+ * In this scenario it is the sum of value, by any amount of POCOs 
+ * note that this is inneficient for large amounts of records */
+ 
 void Main()
 {
 	bool found = false;
