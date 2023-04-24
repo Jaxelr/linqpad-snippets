@@ -1,4 +1,4 @@
-<Query Kind="Expression">
+<Query Kind="Statements">
   <Namespace>System.Security.Cryptography</Namespace>
   <RemoveNamespace>System.Collections</RemoveNamespace>
   <RemoveNamespace>System.Collections.Generic</RemoveNamespace>

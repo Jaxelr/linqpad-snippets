@@ -13,6 +13,7 @@ async Task Main()
 
 public async Task<int> GetNumberValue(string input)
 {
+	await Task.Delay(0);
 	if (int.TryParse(input, out int result))
 	{
 		return result;
