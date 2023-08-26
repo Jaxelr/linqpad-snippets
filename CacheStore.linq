@@ -40,7 +40,7 @@ public class Store
 
 			var options = new MemoryCacheEntryOptions()
 				.SetAbsoluteExpiration(TimeSpan.FromSeconds(props.CacheTimespan))
-				.RegisterPostEvictionCallback(callback: Eviction, state: this)
+				.RegisterPostEvictionCallback(callback: Eviction!, state: this)
 				.SetSize(Count);
 
 			cache.Set(realKey, res, options);
@@ -52,7 +52,7 @@ public class Store
 	{
 		string realKey = Key.Create<T>(key);
 
-		if (props.CacheEnabled && cache.TryGetValue(realKey, out T cachedRes))
+		if (props.CacheEnabled && cache.TryGetValue(realKey, out T? cachedRes) && cachedRes is not null)
 		{
 			return (cachedRes, true);
 		}
@@ -105,7 +105,7 @@ public static class TypeExtension
 			return typeof(string);
 
 		if (type.IsArray)
-			return type.GetElementType();
+			return type.GetElementType()!;
 
 		if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(IEnumerable<>))
 			return type.GetGenericArguments()[0];
