@@ -3,12 +3,16 @@
 </Query>
 
 //Quick lambda to retry execution n amount of times and backoff
-void Main()
+async Task Main()
 {
 	Retry(3, TimeSpan.FromSeconds(2), () =>
 	{
-		
-		
+	});
+	
+	await RetryAsync(3, TimeSpan.FromSeconds(2), () =>
+	{
+		//We cant return void for async
+		return Task.FromResult(0);
 	});
 }
 
@@ -33,5 +37,26 @@ public static void Retry(int times, TimeSpan delay, Action action)
 			backoff+=backoff;
 		}
 		
+	}
+}
+
+public static async Task RetryAsync(int times, TimeSpan delay, Func<Task> func)
+{
+	int retries = 0;
+	int backoff = 1;
+
+	while (true)
+	{
+		try
+		{
+			retries++;
+			await func();
+			break;
+		}
+		catch when (retries < times)
+		{
+			await Task.Delay(delay * backoff);
+			backoff += backoff;
+		}
 	}
 }
