@@ -1,8 +1,8 @@
 <Query Kind="Expression" />
 
 //Foreach for all
-public static void ForEach<T>(this IEnumerable<T> items, Action<T> action)
+public static async Task ForEach<T>(this IEnumerable<T> items, Func<T, Task> action)
 {
 	foreach (var item in items)
-		action(item);
+		await action(item);
 }
