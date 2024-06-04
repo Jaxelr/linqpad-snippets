@@ -4,7 +4,7 @@
 
 async Task Main()
 {
-	var Source = new CancellationTokenSource(TimeSpan.FromSeconds(2));
+	using var Source = new CancellationTokenSource(TimeSpan.FromSeconds(2));
 	
 	try 
 	{
