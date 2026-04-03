@@ -8,7 +8,6 @@
 
 void Main()
 {
-	//POC with handle eviction
 	var testClock = new TestSystemClock();
 	var memoryCache = new MemoryCache(new MemoryCacheOptions
 	{
@@ -80,8 +79,6 @@ public class CacheTest
 }
 
 
-
-// You can define other methods, fields, classes and namespaces here
 public class Item
 { 
 	public int Id { get; set; }
